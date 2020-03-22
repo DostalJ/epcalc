@@ -1,2 +1,6 @@
 .idea/
+.code/
 node_modules/
+.code/
+public/
+.firebase/

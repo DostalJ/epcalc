@@ -376,13 +376,13 @@
     var milestones = []
     for (var i = 0; i < P.length; i++) {
       if (P[i][0] >= 0.5) {
-        milestones.push([i*dt, "First death"])
+        milestones.push([i*dt, "První úmrtí"])
         break
       }
     }
 
     var i = argmax(P, 1)
-    milestones.push([i*dt, "Peak: " + format(",")(Math.round(P[i][1])) + " hospitalizations"])
+    milestones.push([i*dt, "Peak: " + format(",")(Math.round(P[i][1])) + " hospitalizací"])
 
     return milestones
   }
@@ -417,7 +417,7 @@
     font-weight: 300;
     font-family: nyt-franklin,helvetica,arial,sans-serif;
     color:#666;
-    font-size: 16.5px;
+    font-size: 17px;
     text-align: justify;
     line-height: 24px
   }
@@ -609,7 +609,7 @@
           <div style="padding-top: 5px; padding-bottom: 1px">
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N*Iters[active_][0]))} 
                                   ({ (100*Iters[active_][0]).toFixed(2) }%)</i></div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[0]))} / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[0]))} / den</i>
                                  </div>
           </div>
         </div>
@@ -629,7 +629,7 @@
           <div style="padding-top: 5px; padding-bottom: 1px">
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N*Iters[active_][1]))} 
                                   ({ (100*Iters[active_][1]).toFixed(2) }%)</div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[1])) } / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[1])) } / den</i>
                                  </div>
           </div>
         </div>
@@ -648,7 +648,7 @@
           <div style="padding-top: 5px; padding-bottom: 1px">
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N*Iters[active_][2]))} 
                                   ({ (100*Iters[active_][2]).toFixed(2) }%)</div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[2])) } / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[2])) } / den</i>
                                  </div>
           </div>
         </div>
@@ -668,7 +668,7 @@
           <div style="padding-top: 10px; padding-bottom: 1px">
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N* (1-Iters[active_][0]-Iters[active_][1]-Iters[active_][2])+I0 ))} 
                                   ({ ((100*(1-Iters[active_][0]-Iters[active_][1]-Iters[active_][2]-I0/N))).toFixed(2) }%)</div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*(get_d(active_)[3]+get_d(active_)[4]+get_d(active_)[5]+get_d(active_)[6]+get_d(active_)[7]) )) } / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*(get_d(active_)[3]+get_d(active_)[4]+get_d(active_)[5]+get_d(active_)[6]+get_d(active_)[7]) )) } / den</i>
                                  </div>
           </div>
         </div>
@@ -702,7 +702,7 @@
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N*(Iters[active_][5]+Iters[active_][6]) ))} 
                                   ({ (100*(Iters[active_][5]+Iters[active_][6])).toFixed(2) }%)</div>
           </div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*(get_d(active_)[5]+get_d(active_)[6]))) } / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*(get_d(active_)[5]+get_d(active_)[6]))) } / den</i>
                                  </div>
         </div>
         <div class="legendtext" style="text-align: right; width:105px; left:-111px; top: 10px; position:relative;">Aktivní hospitalizace v med. zařízení.</div>
@@ -719,7 +719,7 @@
           <div style="padding-top: 3px; padding-bottom: 1px">          
           <div class="legendtextnum"><span style="font-size:12px; padding-right:3px; color:#CCC">∑</span> <i>{formatNumber(Math.round(N*Iters[active_][9]))} 
                                   ({ (100*Iters[active_][9]).toFixed(2) }%)</div>
-          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[9])) } / day</i>
+          <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*get_d(active_)[9])) } / den</i>
                                  </div>
           </div>
         </div>
@@ -834,7 +834,7 @@
             <div style="flex: 0 0 160px; width:200px; position:relative; top:-125px; left: 1px" >
               <div class="caption" style="pointer-events: none; position: absolute; left:0; top:40px; width:150px; border-left: 2px solid #777; padding: 5px 7px 7px 7px; ">      
               <div class="paneltext"  style="height:20px; text-align: right">
-              <div class="paneldesc">snížila šíření faktorem<br></div>
+              <div class="paneldesc">šíření zmenšeno faktorem<br></div>
               </div>
               <div style="pointer-events: all">
               <div class="slidertext" on:mousedown={lock_yaxis}>{(InterventionAmt).toFixed(2)}</div>
@@ -845,7 +845,7 @@
           </div>
       </div>
 
-<!-- 
+<!--
       {#if xScaleTime(InterventionTime+duration) < (width - padding.right)}
         <div id="dottedline2" style="position: absolute; width:{width+15}px; height: {height}px; position: absolute; top:105px; left:10px; pointer-events: none;">
           <div style="
@@ -861,7 +861,7 @@
               pointer-events: all;
               height:{height+13}px">
             <div style="position:absolute; opacity: 0.5; top:-10px; left:10px; width: 120px">
-            <span style="font-size: 13px">{@html math_inline("\\mathcal{R}_t=" + (R0*InterventionAmt).toFixed(2) )}</span> ⟶ 
+            <span style="font-size: 13px">{@html math_inline("\\mathcal{R}_t=" + (R0*InterventionAmt).toFixed(2) )}</span> ⟶
             </div>
           </div>
         </div>
@@ -878,7 +878,7 @@
               cursor:col-resize;
               height:{height}px">
               <div style="flex: 0 0 160px; width:200px; position:relative; top:-125px; left: 1px" >
-                <div class="caption" style="pointer-events: none; position: absolute; left:0; top:40px; width:150px; border-left: 2px solid #777; padding: 5px 7px 7px 7px; ">      
+                <div class="caption" style="pointer-events: none; position: absolute; left:0; top:40px; width:150px; border-left: 2px solid #777; padding: 5px 7px 7px 7px; ">
                 <div class="paneltext"  style="height:20px; text-align: right">
                 <div class="paneldesc">decrease transmission by<br></div>
                 </div>
@@ -944,7 +944,7 @@
       <div class="paneldesc">Míra nakažlivosti: počet sekundárních infekcí, které může každý nakažený jedinec způsobit.<br></div>
       </div>
       <div class="slidertext">{R0}</div>
-      <input class="range" type=range bind:value={R0} min=0.01 max=10 step=0.01> 
+      <input class="range" type=range bind:value={R0} min=0.01 max=10 step=0.01>
     </div>
 
     <div class="column">
@@ -954,7 +954,7 @@
       <input class="range" style="margin-bottom: 8px"type=range bind:value={D_incbation} min={0.15} max=24 step=0.0001>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Infekční doba, {@html math_inline("T_{\\text{inf}}")}.<br></div>
       <div class="slidertext">{D_infectious} Dní</div>
-      <input class="range" type=range bind:value={D_infectious} min={0.05} max=24 step=0.01>
+      <input class="range" type=range bind:value={D_infectious} min={0} max=24 step=0.01>
     </div>
 
     <div style="flex: 0 0 20; width:20px"></div>
@@ -995,29 +995,40 @@
 <div style="position: relative; height: 12px"></div>
 
 <p class = "center">
+  <b>Úvod</b><br>
   V době tvorby je Covid-19 stále globální zdravotní hrozbou hrozivého měřítka. Pro běžného člověka (jako jsem já)
   je náročné interpretovat čísla, predikce a epidemiologické parametry předkládané v médiích a tisku. Tato kalkulačka
   je výtvořena právě za účelem překlenout nedostatek porozumnění.
 </p>
 
 <p class = "center">
+  <b>Metoda</b><br>
   Tato kalkulačka implementuje klasický model šíření epidemií &mdash <b><a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>(<b>S</b>usceptible → <span style="color:{colors[4]}"><b>E</b></span>xposed → <span style="color:{colors[3]}"><b>I</b></span>nfected → <span><b>R</b></span>emoved; česky: náchylní → vystavení → infikovaní → odstranění), idealizavaný model šíření užívaný přednímy výzkumníky, např. [<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>, <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a>]. Dynamika modelu je charakterizovaná soustavou obyčejných diferenciálních rovnic, které popisují jednotlivá stádia šíření choroby:
   <span style="color:#777">{@html ode_eqn}</span>
-  Tento nástroj dovoluje krom dynamiky šíření využít i další časové informace a tak modelovat úmrtnost a nápor na
+  Implementace dovoluje krom dynamiky šíření využít i další časové informace a tak modelovat úmrtnost a nápor na
   zdravotní zařízení.
 </p>
 
 <p class = "center">
-  Tuto kalkulačku lze využít i k výpočtu rizika vystavení se nemoci ve vybraném dnu epidemie: pravděpodobnost nakažení
-  {Math.round(indexToTime(active_))}. den za předpokladu
+  Pro plánování, včasné zastavení infekce a minimalizaci náporu na nemocnice je třeba provést intervenci do normálního
+  života ve společnosti. Cílem je snížit reprodukční číslo ({@html math_inline("\\mathcal{R}_0")}), které udává počet
+  nově nakažených osob, které infikoval jeden nemocný jedinec. Posuvníkem v pravé horní části lze ponížit původní
+  {@html math_inline("\\mathcal{R}_0")} na nové {@html math_inline("\\mathcal{R}_t")} po intervenci. Máme tak možnost
+  odhadnout jak moc je nutné omezit kontakt k zastavení šíření.
+</p>
+
+<p class = "center">
+  <b>Riziko jednotlivce</b><br>
+  Kalkulačku lze využít i k výpočtu rizika vystavení se nemoci ve vybraném dnu epidemie. Pravděpodobnost nakažení
+  <i>{Math.round(indexToTime(active_))}.&nbsp;den</i> (označ den v grafu) za předpokladu
   <a href="https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-risk-assesment-hcp.html">blízkého kontaktu</a> s
-  <input type="text" style="width:{Math.ceil(Math.log10(p_num_ind))*9.5 + 5}px; font-size: 15.5px; color:#777" bind:value={p_num_ind}> osobami je {((1-(Math.pow(1 - (Iters[active_][2])*(0.45/100), p_num_ind)))*100).toFixed(5)}%
-  za předpokladu nakažlivost 0.45% [<a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6909e1.htm?s_cid=mm6909e1_w">Burke et. al</a>].
+  <input type="text" style="width:{Math.ceil(Math.log10(p_num_ind))*10 + 5}px; font-size: 15.5px; color:#777" bind:value={p_num_ind}> osobami je <i>{((1-(Math.pow(1 - (Iters[active_][2])*(0.45/100), p_num_ind)))*100).toFixed(5)}%<i/>.
+  Za předpokladu nakažlivost 0.45% [<a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6909e1.htm?s_cid=mm6909e1_w">Burke et. al</a>].
 </p>
 
 
 <p class = "center">
-  Odhady epidemiologických parametrů jsou uvedeny níže:
+  <b>Odhady epidemiologických parametrů</b>
 </p>
 
 <div class="center">
@@ -1109,6 +1120,14 @@
     <td></td>
   </tr>
 
+  <tr>
+    <td><a href = "https://doi.org/10.1016/j.ijid.2020.03.031">Shim et. al</a></td>
+    <td>South Korea</td>
+    <td>1.5 (1.4 — 1.6)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
 </table>
 </div>
 
@@ -1120,15 +1139,6 @@
   <a href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">Zprávy WHO</a>.
 </p>
 
-<p class="center">
-  <b>Tuto kalkulačku jsem převzal z <a href="https://gabgoh.github.io/COVID/index.html">anglického originálu</a>.</b>
-  Jelikož jsem se před několika lety zabýval právě metodami šíření epidemií, byl tento web přesně to co jsem hledat
-  k dokreslení vlastní představy o šíření Covid-19.
-  Jakékoli poznámky mi neváhejte sdělit na <a href="https://www.linkedin.com/in/dostaljakub/">LinkedIn</a> nebo email
-  <a href="mailto:dostal@abradatas.cz">dostal@abradatas.cz</a>, případně kolegům: <a href="https://abradatas.com/">web</a>.
-</p>
-
-
 <p class = "center">
 <b> Detaily modelu </b><br>
   Zahrnutí klinických vlastnosti choroby vyžaduje modifikovaný SEIR model, který simuluje šíření s vyšším rozlišením
@@ -1137,6 +1147,15 @@
   a nepřežije). Každá z nových proměných má vlastní průběh a její součet je roven predikcí tradičního SEIR. Model pro
   jednoduchost předpokládá, že všechna úmrtí se stanou ve zdravotním zařízení a že všechni pacienti jsou přijati do
   nemocničního zařízení ihned po infekční periodě.
+</p>
+
+<p class="center">
+  <b> Závěr </b><br>
+  Tuto kalkulačku jsem převzal z <b><a href="https://gabgoh.github.io/COVID/index.html">anglického originálu</a>.</b>
+  Jelikož jsem se před několika lety zabýval metodami šíření epidemií, byl tento web přesně to co jsem hledat
+  k dokreslení vlastní představy o šíření Covid-19.
+  Jakékoli poznámky mi neváhejte sdělit na <a href="https://www.linkedin.com/in/dostaljakub/">LinkedIn</a> nebo email
+  <a href="mailto:dostal@abradatas.cz">dostal@abradatas.cz</a>, případně kolegům: <a href="https://abradatas.com/">web</a>.
 </p>
 
 <p class = "center">
@@ -1150,6 +1169,7 @@
   </a> za zpětnou vazbu. Charlie Huang za kontext a diskuzi.
 </p>
 
+<footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">Web přeložen z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>.</footer>
 <!-- Input data -->
 <!--<div style="margin-bottom: 30px">-->
 

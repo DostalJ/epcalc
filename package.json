@@ -34,6 +34,6 @@
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d public"
+    "deploy": "firebase deploy"
   }
 }
