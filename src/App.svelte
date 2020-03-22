@@ -422,6 +422,19 @@
     line-height: 24px
   }
 
+  ul {
+    list-style-type: none;
+    /*use padding to move list item from left to right*/
+    padding-left: 3em;
+  }
+
+  ul li:before {
+    content: "–";
+    position: absolute;
+    /*change margin to move dash around*/
+    margin-left: -1em;
+  }
+
   .ack {
     margin: auto;
     width: 950px;
@@ -672,7 +685,7 @@
                                  </div>
           </div>
         </div>
-        <div class="legendtext" style="text-align: right; width:105px; left:-111px; top: 4x; position:relative;">Neinfekční a neinfikovatelná díky isolaci nebo imunitě.</div>
+        <div class="legendtext" style="text-align: right; width:105px; left:-111px; top: 4x; position:relative;">Neinfekční a neinfikovatelní díky isolaci nebo imunitě.</div>
 
       </div>
 
@@ -705,7 +718,7 @@
           <div class="legendtextnum"><span style="font-size:12px; padding-right:2px; color:#CCC">Δ</span> <i>{formatNumber(Math.round(N*(get_d(active_)[5]+get_d(active_)[6]))) } / den</i>
                                  </div>
         </div>
-        <div class="legendtext" style="text-align: right; width:105px; left:-111px; top: 10px; position:relative;">Aktivní hospitalizace v med. zařízení.</div>
+        <div class="legendtext" style="text-align: right; width:105px; left:-111px; top: 10px; position:relative;">Aktivní hospitalizace v zdr. zařízení.</div>
 
       </div>
 
@@ -961,7 +974,7 @@
 
     <div class="column">
       <div class="paneltitle">Statistiky úmrtnosti</div>
-      <div class="paneldesc" style="height:30px">Procento úmrtnosti.<br></div>
+      <div class="paneldesc" style="height:30px">Smrtnost.<br></div>
       <div class="slidertext">{(CFR*100).toFixed(2)} %</div>
       <input class="range" style="margin-bottom: 8px" type=range bind:value={CFR} min={0} max=1 step=0.0001>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Doba od konce inkubační doby do úmrtí.<br></div>
@@ -974,7 +987,7 @@
       <div class="paneldesc" style="height:30px">Délka hospitalizace<br></div>
       <div class="slidertext">{D_recovery_severe} Dní</div>
       <input class="range" style="margin-bottom: 8px" type=range bind:value={D_recovery_severe} min={0.1} max=100 step=0.01>
-      <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Čas pro uzdravení mírných případů<br></div>
+      <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Doba pro uzdravení mírných případů<br></div>
       <div class="slidertext">{D_recovery_mild} Dní</div>
       <input class="range" type=range bind:value={D_recovery_mild} min={0.5} max=100 step=0.01>
     </div>
@@ -996,23 +1009,36 @@
 
 <p class = "center">
   <b>Úvod</b><br>
-  V době tvorby je Covid-19 stále globální zdravotní hrozbou hrozivého měřítka. Pro běžného člověka (jako jsem já)
-  je náročné interpretovat čísla, predikce a epidemiologické parametry předkládané v médiích a tisku. Tato kalkulačka
-  je výtvořena právě za účelem překlenout nedostatek porozumnění.
+  V době tvorby je Covid-19 stále globální zdravotní hrozbou. Pro běžného člověka (jako jsem já) je náročné
+  interpretovat čísla, predikce a epidemiologické parametry předkládané v médiích a tisku. Tato kalkulačka
+  je vytvořena právě za účelem překlenout nedostatek porozumnění.
 </p>
 
 <p class = "center">
   <b>Metoda</b><br>
-  Tato kalkulačka implementuje klasický model šíření epidemií &mdash <b><a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>(<b>S</b>usceptible → <span style="color:{colors[4]}"><b>E</b></span>xposed → <span style="color:{colors[3]}"><b>I</b></span>nfected → <span><b>R</b></span>emoved; česky: náchylní → vystavení → infikovaní → odstranění), idealizavaný model šíření užívaný přednímy výzkumníky, např. [<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>, <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a>]. Dynamika modelu je charakterizovaná soustavou obyčejných diferenciálních rovnic, které popisují jednotlivá stádia šíření choroby:
+  Tato kalkulačka implementuje klasický model šíření epidemií &mdash
+  <b><a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>
+  (<b>S</b>usceptible → <span style="color:{colors[4]}"><b>E</b></span>xposed → <span style="color:{colors[3]}">
+  <b>I</b></span>nfected → <span><b>R</b></span>emoved; česky: náchylní → vystavení → infikovaní → odstranění),
+  idealizovaný model šíření užívaný přednímy výzkumníky, např.
+  [<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>,
+  <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski
+    et. al</a>]. Dynamika modelu je vizualizovna níže (prevzate a zjednodusene z
+  <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a>)
+    <span><img src="/SEIR.png" alt="SEIR model" width="70%" style="display: block; margin-left: auto; margin-right: auto;"></span>
+  a přesně charakterizována soustavou obyčejných diferenciálních rovnic, které popisují jednotlivá stádia šíření choroby:
   <span style="color:#777">{@html ode_eqn}</span>
+</p>
+
+<p class="center">
   Implementace dovoluje krom dynamiky šíření využít i další časové informace a tak modelovat úmrtnost a nápor na
   zdravotní zařízení.
 </p>
 
 <p class = "center">
-  Pro plánování, včasné zastavení infekce a minimalizaci náporu na nemocnice je třeba provést intervenci do normálního
-  života ve společnosti. Cílem je snížit reprodukční číslo ({@html math_inline("\\mathcal{R}_0")}), které udává počet
-  nově nakažených osob, které infikoval jeden nemocný jedinec. Posuvníkem v pravé horní části lze ponížit původní
+  Pro plánování, včasné zastavení infekce a minimalizaci náporu na nemocnice je třeba provést intervenci (zásah) do
+  normálního života. Cílem je snížit reprodukční číslo ({@html math_inline("\\mathcal{R}_0")}), které udává počet
+  nově nakažených osob, které infikoval jeden nemocný jedinec. Posuvníkem v pravé horní části lze snížit původní
   {@html math_inline("\\mathcal{R}_0")} na nové {@html math_inline("\\mathcal{R}_t")} po intervenci. Máme tak možnost
   odhadnout jak moc je nutné omezit kontakt k zastavení šíření.
 </p>
@@ -1022,7 +1048,8 @@
   Kalkulačku lze využít i k výpočtu rizika vystavení se nemoci ve vybraném dnu epidemie. Pravděpodobnost nakažení
   <i>{Math.round(indexToTime(active_))}.&nbsp;den</i> (označ den v grafu) za předpokladu
   <a href="https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-risk-assesment-hcp.html">blízkého kontaktu</a> s
-  <input type="text" style="width:{Math.ceil(Math.log10(p_num_ind))*10 + 5}px; font-size: 15.5px; color:#777" bind:value={p_num_ind}> osobami je <i>{((1-(Math.pow(1 - (Iters[active_][2])*(0.45/100), p_num_ind)))*100).toFixed(5)}%<i/>.
+  <input type="text" style="width:{Math.ceil(Math.log10(p_num_ind))*10 + 5}px; font-size: 15.5px; color:#777" bind:value={p_num_ind}>
+  osobami je <i>{((1-(Math.pow(1 - (Iters[active_][2])*(0.45/100), p_num_ind)))*100).toFixed(5)}%</i>.
   Za předpokladu nakažlivost 0.45% [<a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6909e1.htm?s_cid=mm6909e1_w">Burke et. al</a>].
 </p>
 
@@ -1031,14 +1058,22 @@
   <b>Odhady epidemiologických parametrů</b>
 </p>
 
+<ul class="center">
+  <!--  https://www.nejm.org/doi/full/10.1056/NEJMoa2001316-->
+  <!--  https://www.who.int/bulletin/online_first/20-255695.pdf-->
+  <li><i>Reprodukční číslo</i> {@html math_inline("\\mathcal{R}_0")}: průměrný počet jedinců, které nakazí jeden infikovaný.</li>
+  <li><i>Inkubační doba</i> {@html math_inline("T_{\\text{inc}}")}: čas od infekce po propuknutí nemoci (nemusí být stejné, jako propuknutí příznaků).</li>
+  <li><i>Infekční doba</i> {@html math_inline("T_{\\text{inf}}")}: období po které postižený infekční.</li>
+</ul>
+
 <div class="center">
 <table style="width:100%; margin:auto; font-weight: 300; border-spacing: inherit">
   <tr>
     <th></th>
-    <th>Lokalita</th>
-    <th>Reprodukční číslo<br> {@html math_inline("\\mathcal{R}_0")}</th>
-    <th>Inkubační doba<br> {@html math_inline("T_{\\text{inc}}")} (ve dnech)</th>
-    <th>Infekční doba<br> {@html math_inline("T_{\\text{inf}}")} (ve dnech)</th>
+    <th><b>Lokalita</b></th>
+    <th><b>Reprodukční číslo</b><br> {@html math_inline("\\mathcal{R}_0")}</th>
+    <th><b>Inkubační doba</b><br> {@html math_inline("T_{\\text{inc}}")} (ve dnech)</th>
+    <th><b>Infekční doba</b><br> {@html math_inline("T_{\\text{inf}}")} (ve dnech)</th>
   </tr>
   <tr>
     <td width="27%"><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a></td>
@@ -1141,18 +1176,18 @@
 
 <p class = "center">
 <b> Detaily modelu </b><br>
-  Zahrnutí klinických vlastnosti choroby vyžaduje modifikovaný SEIR model, který simuluje šíření s vyšším rozlišením
-  &mdash dělí stádia {@html math_inline("I,R")} na <i>lehké</i> (pacient se uzdravý bez nutnosti hospitalizace),
+  Zahrnutí klinických vlastností choroby vyžaduje modifikovaný SEIR model, který simuluje šíření s vyšším rozlišením
+  &mdash dělí stádia {@html math_inline("I,R")} na <i>lehké</i> (pacient se uzdraví bez nutnosti hospitalizace),
   <i>střední</i> (pacient musí být hospitalizován, ale uzdraví se), <i>smrtelné</i> (pacient musí být hospitalizován
-  a nepřežije). Každá z nových proměných má vlastní průběh a její součet je roven predikcí tradičního SEIR. Model pro
-  jednoduchost předpokládá, že všechna úmrtí se stanou ve zdravotním zařízení a že všechni pacienti jsou přijati do
-  nemocničního zařízení ihned po infekční periodě.
+  a nepřežije). Každá z nových proměnných má vlastní průběh a její součet je roven predikcí tradičního SEIR. Model pro
+  jednoduchost předpokládá, že všechna úmrtí se stanou ve zdravotním zařízení a že všechny těžké případy jsou přijaty
+  do nemocničního zařízení ihned po infekční periodě.
 </p>
 
 <p class="center">
   <b> Závěr </b><br>
   Tuto kalkulačku jsem převzal z <b><a href="https://gabgoh.github.io/COVID/index.html">anglického originálu</a>.</b>
-  Jelikož jsem se před několika lety zabýval metodami šíření epidemií, byl tento web přesně to co jsem hledat
+  Jelikož jsem se před několika lety zabýval metodami šíření epidemií, byl tento web přesně to co jsem hledal
   k dokreslení vlastní představy o šíření Covid-19.
   Jakékoli poznámky mi neváhejte sdělit na <a href="https://www.linkedin.com/in/dostaljakub/">LinkedIn</a> nebo email
   <a href="mailto:dostal@abradatas.cz">dostal@abradatas.cz</a>, případně kolegům: <a href="https://abradatas.com/">web</a>.
@@ -1169,7 +1204,10 @@
   </a> za zpětnou vazbu. Charlie Huang za kontext a diskuzi.
 </p>
 
-<footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">Web přeložen z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>.</footer>
+<footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">
+  Web přeložen a doplněn z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>
+</footer>
+
 <!-- Input data -->
 <!--<div style="margin-bottom: 30px">-->
 
