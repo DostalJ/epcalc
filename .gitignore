@@ -1,6 +1,5 @@
 .idea/
 .code/
 node_modules/
-.code/
-public/
+public/bundle.*
 .firebase/

@@ -404,11 +404,29 @@
     width: 950px;
     font-size: 40px;
     padding-top: 20px;
-    padding-bottom: 20px;
     font-weight: 300;
     font-family: nyt-franklin,helvetica,arial,sans-serif;
     padding-bottom: 30px
   }
+
+    h3 {
+    margin: auto;
+    width: 950px;
+    font-size: 25px;
+    padding-top: 0px;
+    font-weight: 300;
+    font-family: nyt-franklin,helvetica,arial,sans-serif;
+    color: Gray;
+    padding-bottom: 30px
+  }
+
+  footer {
+      padding: 10px;
+      margin-top: 3px;
+      width: 925px;
+      text-align: center;
+      color: DarkGray;
+    }
 
   .center {
     margin: auto;
@@ -603,7 +621,8 @@
 
 </style>
 
-<h2>Epidemiologická kalkulačka</h2>
+<h2 style="padding-bottom: 3px">Epidemiologická kalkulačka</h2>
+<h3>Koronavirus v České republice</h3>
 
 <div class="chart" style="display: flex; max-width: 1120px">
 
@@ -1204,7 +1223,7 @@
   </a> za zpětnou vazbu. Charlie Huang za kontext a diskuzi.
 </p>
 
-<footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">
+<footer class="center">
   Web přeložen a doplněn z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>
 </footer>
 
