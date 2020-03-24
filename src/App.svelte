@@ -59,7 +59,7 @@
 
 
   $: Time_to_death     = 32
-  $: logN              = Math.log(10e6)
+  $: logN              = Math.log(10.65e6)
   $: N                 = Math.exp(logN)
   $: I0                = 1
   $: R0                = 2.2
@@ -420,13 +420,6 @@
     padding-bottom: 30px
   }
 
-  footer {
-      padding: 10px;
-      margin-top: 3px;
-      width: 925px;
-      text-align: center;
-      color: DarkGray;
-    }
 
   .center {
     margin: auto;
@@ -1168,7 +1161,7 @@
 
   <tr>
     <td><a href = "https://www.mdpi.com/2077-0383/9/2/462">Tang et. al</a></td>
-    <td>China</td>
+    <td>Čína</td>
     <td>6.47 (5.71 — 7.23)</td>
     <td></td>
     <td></td>
@@ -1176,13 +1169,54 @@
 
   <tr>
     <td><a href = "https://doi.org/10.1016/j.ijid.2020.03.031">Shim et. al</a></td>
-    <td>South Korea</td>
+    <td>Jižní Korea</td>
     <td>1.5 (1.4 — 1.6)</td>
     <td></td>
     <td></td>
   </tr>
+    <tr>
+    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td>Jižní Korea</td>
+    <td>0.95 (0.6 — 1.3)</td>
+    <td></td>
+    <td></td>
+  </tr>
 
+  <tr>
+    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td>Spojen Státy Americké</td>
+    <td>3.9 (1.9 – 5.9)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td>Itálie</td>
+    <td>1.4 (1.0 – 1.8)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/italy-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td>Emilia Romagna (Itálie)</td>
+    <td>1.7 (1.3 — 2.1)</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td>Česká republika</td>
+    <td>1.75 (1.0 — 2.5)</td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
+  *Odhad z 19. 3. 2020.
+
+
 </div>
 
 
@@ -1223,7 +1257,7 @@
   </a> za zpětnou vazbu. Charlie Huang za kontext a diskuzi.
 </p>
 
-<footer class="center">
+<footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">
   Web přeložen a doplněn z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>
 </footer>
 
