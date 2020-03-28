@@ -1032,7 +1032,7 @@
   <b><a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>
   (<b>S</b>usceptible → <span style="color:{colors[4]}"><b>E</b></span>xposed → <span style="color:{colors[3]}">
   <b>I</b></span>nfected → <span><b>R</b></span>emoved; česky: náchylní → vystavení → infikovaní → odstranění),
-  idealizovaný model šíření užívaný přednímy výzkumníky, např.
+  idealizovaný model šíření užívaný předními výzkumníky, např.
   [<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>,
   <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski
     et. al</a>]. Dynamika modelu je vizualizovna níže (prevzate a zjednodusene z
