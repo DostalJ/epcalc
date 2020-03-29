@@ -9,5 +9,5 @@ import App from './App.svelte';
 // export default app;
 
 
-const target = document.body
+const target = document.body;
 new App({ target, props: { } });
