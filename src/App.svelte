@@ -1029,14 +1029,14 @@
 <p class = "center">
   <b>Metoda</b><br>
   Tato kalkulačka implementuje klasický model šíření epidemií &mdash
-  <b><a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>
+  <b><a target="_blank" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">SEIR</a> </b>
   (<b>S</b>usceptible → <span style="color:{colors[4]}"><b>E</b></span>xposed → <span style="color:{colors[3]}">
   <b>I</b></span>nfected → <span><b>R</b></span>emoved; česky: náchylní → vystavení → infikovaní → odstranění),
   idealizovaný model šíření užívaný předními výzkumníky, např.
-  [<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>,
-  <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski
+  [<a target="_blank" href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu, et. al</a>,
+  <a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski
     et. al</a>]. Dynamika modelu je vizualizovna níže (prevzate a zjednodusene z
-  <a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a>)
+  <a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a>)
     <span><img src="/SEIR.png" alt="SEIR model" width="70%" style="display: block; margin-left: auto; margin-right: auto;"></span>
   a přesně charakterizována soustavou obyčejných diferenciálních rovnic, které popisují jednotlivá stádia šíření choroby:
   <span style="color:#777">{@html ode_eqn}</span>
@@ -1059,10 +1059,10 @@
   <b>Riziko jednotlivce</b><br>
   Kalkulačku lze využít i k výpočtu rizika vystavení se nemoci ve vybraném dnu epidemie. Pravděpodobnost nakažení
   <i>{Math.round(indexToTime(active_))}.&nbsp;den</i> (označ den v grafu) za předpokladu
-  <a href="https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-risk-assesment-hcp.html">blízkého kontaktu</a> s
+  <a target="_blank" href="https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-risk-assesment-hcp.html">blízkého kontaktu</a> s
   <input type="text" style="width:{Math.ceil(Math.log10(p_num_ind))*10 + 5}px; font-size: 15.5px; color:#777" bind:value={p_num_ind}>
   osobami je <i>{((1-(Math.pow(1 - (Iters[active_][2])*(0.45/100), p_num_ind)))*100).toFixed(5)}%</i>.
-  Za předpokladu nakažlivost 0.45% [<a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6909e1.htm?s_cid=mm6909e1_w">Burke et. al</a>].
+  Za předpokladu nakažlivost 0.45% [<a target="_blank" href="https://www.cdc.gov/mmwr/volumes/69/wr/mm6909e1.htm?s_cid=mm6909e1_w">Burke et. al</a>].
 </p>
 
 
@@ -1088,70 +1088,70 @@
     <th><b>Infekční doba</b><br> {@html math_inline("T_{\\text{inf}}")} (ve dnech)</th>
   </tr>
   <tr>
-    <td width="27%"><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a></td>
+    <td width="27%"><a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/wuhan-early-dynamics.html">Kucharski et. al</a></td>
     <td>Wuhan </td>    
     <td>3.0 (1.5 — 4.5)</td>
     <td>5.2</td>
     <td>2.9</td>
   </tr>
   <tr>
-    <td><a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Leung and Leung</a></td>
+    <td><a target="_blank" href = "https://www.nejm.org/doi/full/10.1056/NEJMoa2001316">Li, Leung and Leung</a></td>
     <td>Wuhan </td>    
     <td>2.2 (1.4 — 3.9)</td>
     <td>5.2 (4.1 — 7.0)</td>
     <td>2.3 (0.0 — 14.9)</td>
   </tr>
   <tr>
-    <td><a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu et. al</a></td>
+    <td><a target="_blank" href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext">Wu et. al</a></td>
     <td>Greater Wuhan </td>    
     <td>2.68 (2.47 — 2.86)</td>
     <td>6.1</td>
     <td>2.3</td>
   </tr>
   <tr>
-    <td><a href = "https://www.who.int/news-room/detail/23-01-2020-statement-on-the-meeting-of-the-international-health-regulations-(2005)-emergency-committee-regarding-the-outbreak-of-novel-coronavirus-(2019-ncov)">WHO Initial Estimate</a></td>
+    <td><a target="_blank" href = "https://www.who.int/news-room/detail/23-01-2020-statement-on-the-meeting-of-the-international-health-regulations-(2005)-emergency-committee-regarding-the-outbreak-of-novel-coronavirus-(2019-ncov)">WHO Initial Estimate</a></td>
     <td>Hubei </td>    
     <td>1.95 (1.4 — 2.5)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href = "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">WHO-China Joint Mission </a></td>
+    <td><a target="_blank" href = "https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">WHO-China Joint Mission </a></td>
     <td>Hubei </td>    
     <td>2.25 (2.0 — 2.5)</td>
     <td>5.5 (5.0 - 6.0)</td>
     <td></td>
   </tr>
   <tr>
-    <td><a href = "https://www.biorxiv.org/content/10.1101/2020.01.25.919787v2">Liu et. al </a></td>
+    <td><a target="_blank" href = "https://www.biorxiv.org/content/10.1101/2020.01.25.919787v2">Liu et. al </a></td>
     <td>Guangdong</td>
     <td>4.5 (4.4 — 4.6)</td>
     <td>4.8 (2.2 — 7.4) </td>
     <td>2.9 (0 — 5.9)</td>
   </tr>
   <tr>
-    <td><a href = "https://academic.oup.com/jtm/advance-article/doi/10.1093/jtm/taaa030/5766334">Rocklöv, Sjödin and Wilder-Smith</a></td>
+    <td><a target="_blank" href = "https://academic.oup.com/jtm/advance-article/doi/10.1093/jtm/taaa030/5766334">Rocklöv, Sjödin and Wilder-Smith</a></td>
     <td>Princess Diamond</td>
     <td>14.8</td>
     <td>5.0</td>
     <td>10.0</td>
   </tr>
   <tr>
-    <td><a href = "https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.5.2000062">Backer, Klinkenberg, Wallinga</a></td>
+    <td><a target="_blank" href = "https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.5.2000062">Backer, Klinkenberg, Wallinga</a></td>
     <td>Wuhan</td>
     <td></td>
     <td>6.5 (5.6 — 7.9)</td>
     <td></td>
   </tr>
   <tr>
-    <td><a href = "https://www.medrxiv.org/content/10.1101/2020.01.23.20018549v2.article-info">Read et. al</a></td>
+    <td><a target="_blank" href = "https://www.medrxiv.org/content/10.1101/2020.01.23.20018549v2.article-info">Read et. al</a></td>
     <td>Wuhan</td>
     <td>3.11 (2.39 — 4.13)</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href = "https://www.medrxiv.org/content/10.1101/2020.03.03.20028423v1">Bi et. al</a></td>
+    <td><a target="_blank" href = "https://www.medrxiv.org/content/10.1101/2020.03.03.20028423v1">Bi et. al</a></td>
     <td>Shenzhen</td>
     <td></td>
     <td>4.8 (4.2 — 5.4)</td>
@@ -1160,7 +1160,7 @@
   </tr>
 
   <tr>
-    <td><a href = "https://www.mdpi.com/2077-0383/9/2/462">Tang et. al</a></td>
+    <td><a target="_blank" href = "https://www.mdpi.com/2077-0383/9/2/462">Tang et. al</a></td>
     <td>Čína</td>
     <td>6.47 (5.71 — 7.23)</td>
     <td></td>
@@ -1168,14 +1168,14 @@
   </tr>
 
   <tr>
-    <td><a href = "https://doi.org/10.1016/j.ijid.2020.03.031">Shim et. al</a></td>
+    <td><a target="_blank" href = "https://doi.org/10.1016/j.ijid.2020.03.031">Shim et. al</a></td>
     <td>Jižní Korea</td>
     <td>1.5 (1.4 — 1.6)</td>
     <td></td>
     <td></td>
   </tr>
     <tr>
-    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td><a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
     <td>Jižní Korea</td>
     <td>0.95 (0.6 — 1.3)</td>
     <td></td>
@@ -1183,7 +1183,7 @@
   </tr>
 
   <tr>
-    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td><a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
     <td>Spojen Státy Americké</td>
     <td>3.9 (1.9 – 5.9)</td>
     <td></td>
@@ -1191,7 +1191,7 @@
   </tr>
 
   <tr>
-    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td><a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
     <td>Itálie</td>
     <td>1.4 (1.0 – 1.8)</td>
     <td></td>
@@ -1207,24 +1207,31 @@
   </tr>
 
   <tr>
-    <td><a href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
+    <td><a target="_blank" href = "https://cmmid.github.io/topics/covid19/current-patterns-transmission/global-time-varying-transmission.html">Abbott et. al</a>*</td>
     <td>Česká republika</td>
     <td>1.75 (1.0 — 2.5)</td>
     <td></td>
     <td></td>
   </tr>
+  <tr>
+    <td><a target="_blank" href = "https://www.uzis.cz/res/file/akce/20200324-covid-19/20200324-dusek.pdf">L. Dušek</a>†</td>
+    <td>Česká republika</td>
+    <td>1.2</td>
+    <td>3</td>
+    <td>5</td>
+  </tr>
 </table>
-  *Odhad z 19. 3. 2020.
-
+  *Odhad z 19. 3. 2020.<br/>
+  †Vágně popsáno v prezentaci.
 
 </div>
 
 
 <p class="center">
   Pro detailní souhrn aktuálních odhadů reprodukčních čísel navštivte
-  [<a href="https://academic.oup.com/jtm/advance-article/doi/10.1093/jtm/taaa021/5735319">Liu et. al</a>]. Klinické
+  [<a target="_blank" href="https://academic.oup.com/jtm/advance-article/doi/10.1093/jtm/taaa021/5735319">Liu et. al</a>]. Klinické
   vlastnosti nemoci jsou převzaty ze
-  <a href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">Zprávy WHO</a>.
+  <a target="_blank" href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">Zprávy WHO</a>.
 </p>
 
 <p class = "center">
@@ -1239,26 +1246,26 @@
 
 <p class="center">
   <b> Závěr </b><br>
-  Tuto kalkulačku jsem převzal z <b><a href="https://gabgoh.github.io/COVID/index.html">anglického originálu</a>.</b>
+  Tuto kalkulačku jsem převzal z <b><a target="_blank" href="https://gabgoh.github.io/COVID/index.html">anglického originálu</a>.</b>
   Jelikož jsem se před několika lety zabýval metodami šíření epidemií, byl tento web přesně to co jsem hledal
   k dokreslení vlastní představy o šíření Covid-19.
-  Jakékoli poznámky mi neváhejte sdělit na <a href="https://www.linkedin.com/in/dostaljakub/">LinkedIn</a> nebo email
-  <a href="mailto:dostal@abradatas.cz">dostal@abradatas.cz</a>, případně kolegům: <a href="https://abradatas.com/">web</a>.
+  Jakékoli poznámky mi neváhejte sdělit na <a target="_blank" href="https://www.linkedin.com/in/dostaljakub/">LinkedIn</a> nebo email
+  <a target="_blank" href="mailto:dostal@abradatas.cz">dostal@abradatas.cz</a>, případně kolegům: <a target="_blank" href="https://abradatas.com/">web</a>.
 </p>
 
 <p class = "center">
   <b> Poděkování </b><br>
-  Děkujeme původnímu autoru <a href="http://gabgoh.github.io/">Gabriel Goh</a> za poskytnutí zdrojového kódu a svolení
+  Děkujeme původnímu autoru <a target="_blank" href="http://gabgoh.github.io/">Gabriel Goh</a> za poskytnutí zdrojového kódu a svolení
   k překladu.
   <br/>
-  Původní autor děkuje <a href = "https://enkimute.github.io/">Steven De Keninck</a> za RK4 Integrator.
-  <a href="https://twitter.com/ch402">Chris Olah</a>, <a href="https://twitter.com/shancarter">Shan Carter
-  </a> a <a href="https://twitter.com/ludwigschubert">Ludwig Schubert
+  Původní autor děkuje <a target="_blank" href = "https://enkimute.github.io/">Steven De Keninck</a> za RK4 Integrator.
+  <a target="_blank" href="https://twitter.com/ch402">Chris Olah</a>, <a target="_blank" href="https://twitter.com/shancarter">Shan Carter
+  </a> a <a target="_blank" href="https://twitter.com/ludwigschubert">Ludwig Schubert
   </a> za zpětnou vazbu. Charlie Huang za kontext a diskuzi.
 </p>
 
 <footer class="center" style="padding: 10px; margin-top: 3px; width: 925px; text-align: center; color: DarkGray;">
-  Web přeložen a doplněn z anglického originálu společností <a href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>
+  Web přeložen a doplněn z anglického originálu společností <a target="_blank" href="https://abradatas.com/"><b>Abradatas s.r.o.</b></a>
 </footer>
 
 <!-- Input data -->
