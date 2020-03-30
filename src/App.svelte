@@ -1023,7 +1023,10 @@
   <b>Úvod</b><br>
   V době tvorby je Covid-19 stále globální zdravotní hrozbou. Pro běžného člověka (jako jsem já) je náročné
   interpretovat čísla, predikce a epidemiologické parametry předkládané v médiích a tisku. Tato kalkulačka
-  je vytvořena právě za účelem překlenout nedostatek porozumnění.
+  je vytvořena právě za účelem překlenout nedostatek porozumnění. Několik hypotetických scénářů s komentářem
+  a vysvětlením je k dispozici v článku
+  <a target="_blank" href="http://abradatas.eu/solving-real-world-problems/pohled-matematika-koronavirus-v-cr-mat-mod/">
+    Matematické modelování - koronavirus v ČR</a>.
 </p>
 
 <p class = "center">
